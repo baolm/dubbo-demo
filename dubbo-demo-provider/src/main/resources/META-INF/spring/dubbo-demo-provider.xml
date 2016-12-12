@@ -8,7 +8,7 @@
 	<dubbo:application name="dubbo-demo-service" />
 	
 	<dubbo:registry id="zk" protocol="zookeeper" address="${dubbo.registry.address}"
-		file="${user.home}/.dubbo-cache/provider-dubbo-demo-service-zk-01" group="dubbo-online" />
+		file="${user.home}/.dubbo-cache/provider-dubbo-demo-service-zk-01" group="dubbo" />
 	
 	<dubbo:protocol name="dubbo" port="20880" threadpool="cached" threads="500" accepts="500" />
 

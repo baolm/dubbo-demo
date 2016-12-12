@@ -25,10 +25,10 @@
 	<dubbo:application name="dubbo-demo-client" />
 
 	<dubbo:registry id="zk" protocol="zookeeper" address="${dubbo.registry.address}"
-		file="${user.home}/.dubbo-cache/consumer-dubbo-demo-client-zk-01" group="dubbo-online" check="false" />
+		file="${user.home}/.dubbo-cache/consumer-dubbo-demo-client-zk-01" group="dubbo" check="false" />
 
 	<dubbo:consumer check="false" timeout="${dubbo.consumer.timeout}" retries="0" />
 
-	<dubbo:annotation package="com.autrade.demo.consumer" />
+	<dubbo:annotation package="com.autrade.demo.action" />
 
 </beans>

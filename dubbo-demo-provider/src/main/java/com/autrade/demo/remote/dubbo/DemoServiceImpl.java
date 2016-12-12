@@ -26,7 +26,7 @@ import com.autrade.demo.domain.ZoneProductIndex;
 import com.autrade.demo.remote.DemoService;
 import com.autrade.demo.service.IZoneProductIndexService;
 
-@Service(version = "1.0.0")
+@Service(version = "1.0.0", retries = 2, timeout = 5000)
 public class DemoServiceImpl implements DemoService {
 
     @Autowired

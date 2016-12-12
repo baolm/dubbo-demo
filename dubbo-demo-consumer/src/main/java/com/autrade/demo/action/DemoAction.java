@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.autrade.demo.consumer;
+package com.autrade.demo.action;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
