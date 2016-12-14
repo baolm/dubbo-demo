@@ -39,7 +39,7 @@ public class DemoServiceImpl implements DemoService {
 
         ZoneProductIndex z = zoneProductIndexService.getZoneProductIndex("HG_CL_YE");
         if (z != null)
-            logger.info("get one index number: ", z.getIndexNumber());
+            logger.info("get one index number: {}", z.getIndexNumber());
 
         return "Hello " + name + ", response form provider: " + RpcContext.getContext().getLocalAddress();
     }
