@@ -15,9 +15,8 @@
  */
 package com.autrade.demo.remote.dubbo;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.dubbo.config.annotation.Service;
@@ -29,17 +28,18 @@ import com.autrade.demo.service.IZoneProductIndexService;
 @Service(version = "1.0.0", retries = 2, timeout = 5000)
 public class DemoServiceImpl implements DemoService {
 
+    private static final Logger      logger = LoggerFactory.getLogger(DemoServiceImpl.class);
+
     @Autowired
     private IZoneProductIndexService zoneProductIndexService;
 
     public String sayHello(String name) {
 
-        System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] Hello " + name
-                + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
+        logger.info("Hello {}, request from consumer: {}", name, RpcContext.getContext().getRemoteAddress());
 
         ZoneProductIndex z = zoneProductIndexService.getZoneProductIndex("HG_CL_YE");
         if (z != null)
-            System.out.println("get one index number: " + z.getIndexNumber());
+            logger.info("get one index number: ", z.getIndexNumber());
 
         return "Hello " + name + ", response form provider: " + RpcContext.getContext().getLocalAddress();
     }

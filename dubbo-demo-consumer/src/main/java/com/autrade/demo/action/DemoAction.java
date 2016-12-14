@@ -18,6 +18,8 @@ package com.autrade.demo.action;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,8 @@ import com.autrade.demo.remote.DemoService;
 @Service
 public class DemoAction implements InitializingBean {
 
+    private static final Logger logger = LoggerFactory.getLogger(DemoAction.class);
+    
     @Reference(version = "1.0.0")
     private DemoService demoService;
 
@@ -40,6 +44,9 @@ public class DemoAction implements InitializingBean {
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
             try {
                 String hello = demoService.sayHello("world" + i);
+                
+                logger.info("sayHello: {}", hello);
+                
                 System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " + hello);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -53,6 +60,7 @@ public class DemoAction implements InitializingBean {
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
             try {
                 String hello = demoService.sayHello("world" + i);
+                logger.info("sayHello2: {}", hello);
                 System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] " + hello);
             } catch (Exception e) {
                 e.printStackTrace();

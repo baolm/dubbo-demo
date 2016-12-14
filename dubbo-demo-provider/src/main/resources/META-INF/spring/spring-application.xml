@@ -25,6 +25,8 @@
 			<list>
 				<!-- 本地开发环境配置 -->
 				<value>classpath*:demo.properties</value>
+				<!-- 服务器生产环境配置 -->
+ 				<value>file:/opt/config/demo.properties</value>
 			</list>
 		</property>
 	</bean>
